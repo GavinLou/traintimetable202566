@@ -43,7 +43,7 @@ function App() {
                 <Image
                   width={"50px"}
                   height={"50px"}
-                  src="public\ROC_Taiwan_Railways_Administration_Logo.svg.png"
+                  src="ROC_Taiwan_Railways_Administration_Logo.svg.png"
                 />
                 <Heading>台灣鐵路</Heading>
               </Flex>
