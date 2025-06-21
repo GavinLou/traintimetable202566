@@ -40,7 +40,7 @@ const Home = () => {
             <Image
               objectFit="cover"
               maxW="200px"
-              src="src\image\1.png"
+              src="public\1.png"
               alt="Caffe Latte"
             />
             <Box>
@@ -67,7 +67,7 @@ const Home = () => {
             <Image
               objectFit="cover"
               maxW="200px"
-              src="src\image\2.png"
+              src="public\2.png"
               alt="Caffe Latte"
             />
             <Box>
@@ -96,7 +96,7 @@ const Home = () => {
             <Image
               objectFit="cover"
               maxW="200px"
-              src="src\image\3.png"
+              src="public\3.png"
               alt="Caffe Latte"
             />
             <Box>
@@ -119,7 +119,7 @@ const Home = () => {
             <Image
               objectFit="cover"
               maxW="200px"
-              src="src\image\4.png"
+              src="public\4.png"
               alt="Caffe Latte"
             />
             <Box>
