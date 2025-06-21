@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Badge, Box, Button, Card, HStack, Image, Flex, Heading, Link } from "@chakra-ui/react"
+import { Badge, Box, Button, Card, HStack, Image, Flex, Heading } from "@chakra-ui/react"
 import '../index.css'
 
 const Home = () => {
