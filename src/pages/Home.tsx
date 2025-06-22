@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react";
 import { Badge, Box, Button, Card, HStack, Image, Flex, Heading } from "@chakra-ui/react"
 import '../index.css'
+import { getTDXToken } from "../Token.tsx";
 
 const Home = () => {
   const [alerts, setAlerts] = useState<string[]>([]);
 
   useEffect(() => {
-    fetch("https://tdx.transportdata.tw/api/basic/v3/Rail/TRA/News?%24top=1&%24format=JSON")
-      .then((res) => res.json())
-      .then((data) => {
-        setAlerts([
-          data.Newses[0]?.Description || "測試公告"
-        ]);
-      })
-      .catch(() => setAlerts(["公告載入失敗，請稍後再試"]));
+    async function fetchNews() {
+      const token = await getTDXToken();
+      const res = await fetch("https://tdx.transportdata.tw/api/basic/v3/Rail/TRA/News?%24top=1&%24format=JSON", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await res.json();
+      setAlerts([
+        data.Newses[0]?.Description || "測試公告"
+      ]);
+    }
+    fetchNews();
   }, []);
 
   return (
@@ -96,7 +100,7 @@ const Home = () => {
             <Image
               objectFit="cover"
               maxW="200px"
-              src="3.png"
+              src={"3.png"}
               alt="Caffe Latte"
             />
             <Box>
@@ -106,12 +110,16 @@ const Home = () => {
                   參加鐵路紀念集章活動，蒐集各站印章，完成後可兌換精美紀念品。
                 </Card.Description>
                 <HStack mt="4">
-                  <Badge>Hot</Badge>
-                  <Badge>Caffeine</Badge>
+                  <Badge>紀念</Badge>
+                  <Badge>印章</Badge>
                 </HStack>
               </Card.Body>
               <Card.Footer>
-                <Button>Buy Latte</Button>
+                <Button
+                  onClick={() => window.open("https://www.seiburailway.jp/sightseeing/eventcampaigninfo/japantaiwan_stamprally/#sec1", "_blank")}
+                >
+                  活動連結
+                </Button>
               </Card.Footer>
             </Box>
           </Card.Root>
@@ -124,18 +132,21 @@ const Home = () => {
             />
             <Box>
               <Card.Body>
-                <Card.Title mb="2">The perfect latte</Card.Title>
+                <Card.Title mb="2">台鐵便當預定</Card.Title>
                 <Card.Description>
-                  Caffè latte is a coffee beverage of Italian origin made with espresso
-                  and steamed milk.
+                  提供便當預定服務，讓您在旅途中享受美味便當，請提前預定以確保供應。
                 </Card.Description>
                 <HStack mt="4">
-                  <Badge>Hot</Badge>
-                  <Badge>Caffeine</Badge>
+                  <Badge>便當</Badge>
+                  <Badge>預定</Badge>
                 </HStack>
               </Card.Body>
               <Card.Footer>
-                <Button>Buy Latte</Button>
+                <Button
+                  onClick={() => window.open("https://www.railway.gov.tw/tra-tip-web/tip/tip004/tip421/entry", "_blank")}
+                >
+                  便當預定
+                </Button>
               </Card.Footer>
             </Box>
           </Card.Root>

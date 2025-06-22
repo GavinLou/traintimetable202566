@@ -87,7 +87,7 @@ function App() {
                 <Route path="/search" element={<Search />} />
                 <Route path="/trainmap" element={<Trainmap />} />
                 <Route path="/Stationmap" element={<Stationmap />} />
-                <Route path="/information" element={<Information />} />
+                <Route path="/informaion" element={<Information />} />
                 <Route path="/buyticket" element={<Buyticket />} />
               </Routes>
             </Box>
